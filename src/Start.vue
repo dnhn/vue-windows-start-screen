@@ -16,7 +16,7 @@
         :class="[`tile--${tile.size}`, {'tile--sidebar': tile.sideBar}]"
         :style="{
           borderColor: !tile.bgImage && tile.bgColor ? tile.bgColor : 'transparent',
-          backgroundColor: tile.bgColor ? tile.bgColor : 'transparent',
+          backgroundColor: tile.bgColor ? tile.bgColor : '#666',
           backgroundImage: tile.bgImage ? `url(${tile.bgImage})` : 'none'
         }">
         <i
@@ -56,7 +56,7 @@ export default {
         {
           name: 'Photos',
           size: 'medium-square',
-          bgImage: 'https://unsplash.it/360',
+          bgImage: 'https://unsplash.it/200',
           icon: 'photo'
         },
         {
@@ -136,7 +136,7 @@ export default {
         {
           name: 'Travel',
           size: 'medium',
-          bgImage: 'https://unsplash.it/256',
+          bgImage: 'https://unsplash.it/400',
           sideBar: true
         },
         {
@@ -177,149 +177,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.tiles {
-  padding-left: 6vw;
-  padding-right: 10vw;
-  display: grid;
-  grid-template-columns: repeat(16, 64px);
-  grid-template-rows: repeat(8, 64px);
-  grid-gap: 8px;
-  overflow-x: auto;
-
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: repeat(12, 64px);
-    grid-template-rows: repeat(10, 64px);
-  }
-
-  @media screen and (max-width: 960px) {
-    grid-template-columns: repeat(10, 64px);
-    grid-template-rows: repeat(8, 64px);
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(8, 64px);
-    grid-template-rows: repeat(12, 64px);
-  }
-
-  @media screen and (max-width: 640px) {
-    grid-template-columns: repeat(6, 64px);
-    grid-template-rows: repeat(16, 64px);
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(4, 64px);
-    grid-template-rows: repeat(8, 64px);
-  }
-}
-
-$tileClass: '.tile';
-
-#{$tileClass} {
-  cursor: pointer;
-  position: relative;
-  border-width: 3px;
-  border-style: solid;
-  padding: 10px;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  font-size: 12px;
-
-  &:hover {
-    border-color: white !important;
-  }
-
-  &--small {
-    grid-area: span 1 / span 1;
-
-    #{$tileClass}-name {
-      display: none;
-    }
-  }
-
-  &--medium {
-    grid-area: span 2 / span 4;
-
-    #{$tileClass}-icon {
-      font-size: 60px;
-    }
-
-    @media screen and (max-width: 1024px) {
-      grid-area: span 2 / span 2;
-    }
-
-    @media screen and (max-width: 480px) {
-      grid-area: span 1 / span 1;
-
-      #{$tileClass}-icon {
-        font-size: 30px;
-      }
-
-      #{$tileClass}-name {
-        display: none;
-      }
-    }
-
-    &-square {
-      grid-area: span 2 / span 2;
-
-      #{$tileClass}-icon {
-        font-size: 60px;
-      }
-
-      @media screen and (max-width: 480px) {
-        grid-area: span 1 / span 1;
-
-        #{$tileClass}-icon {
-          font-size: 30px;
-        }
-
-        #{$tileClass}-name {
-          display: none;
-        }
-      }
-    }
-  }
-
-  &--large {
-    grid-area: span 4 / span 4;
-
-    @media screen and (max-width: 1024px) {
-      grid-area: span 2 / span 2;
-    }
-
-    @media screen and (max-width: 480px) {
-      grid-area: span 1 / span 1;
-
-      #{$tileClass}-icon {
-        font-size: 30px;
-      }
-
-      #{$tileClass}-name {
-        display: none;
-      }
-    }
-
-    #{$tileClass}-icon {
-      font-size: 120px;
-    }
-  }
-
-  &-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-  }
-
-  &--sidebar {
-    @media screen and (min-width: 1281px) {
-      left: 4vw;
-    }
-  }
-}
-</style>
+<style lang="scss" src="./assets/start.scss"></style>
