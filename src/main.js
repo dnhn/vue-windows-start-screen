@@ -5,5 +5,5 @@ import './assets/main.scss'
 
 new Vue({
   el: '#app',
-  render: h => h(Start)
+  render: s => s(Start)
 });
