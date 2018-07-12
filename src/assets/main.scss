@@ -35,9 +35,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: opacity 1s ease;
+
+  .app--loading & {
+    opacity: 0;
+  }
 }
 
-#app {
+.app {
   width: 100%;
 }
 

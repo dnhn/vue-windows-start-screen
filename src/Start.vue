@@ -1,5 +1,8 @@
 <template>
-  <main id="app" :class="{loading: !vueMounted}">
+  <main
+    id="app"
+    class="app"
+    :class="{'app--loading': !vueMounted}">
     <header>
       <h1 class="start-title">
         Start
@@ -17,7 +20,7 @@
         :style="{
           backgroundColor: tile.bgColor ? tile.bgColor : '#666',
           backgroundImage: tile.bgImage ? `url(${tile.bgImage})` : 'none',
-          transitionDelay: `${(index + 1) * 200}ms`
+          transitionDelay: `${(index * 200) + 500}ms`
         }">
         <div
           class="tile-border"
@@ -50,7 +53,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.vueMounted = true;
-    }, 1500);
+    }, 0);
   }
 }
 </script>
