@@ -136,6 +136,12 @@ $tileClass: '.tile';
     }
   }
 
+  &--sidebar {
+    @media screen and (min-width: 1281px) {
+      left: 4vw;
+    }
+  }
+
   &-border {
     position: absolute;
     top: 0;
@@ -153,11 +159,5 @@ $tileClass: '.tile';
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
-  }
-
-  &--sidebar {
-    @media screen and (min-width: 1281px) {
-      left: 4vw;
-    }
   }
 }
