@@ -38,8 +38,6 @@ $tileClass: '.tile';
 #{$tileClass} {
   cursor: pointer;
   position: relative;
-  border-width: 3px;
-  border-style: solid;
   padding: 10px;
   background-size: cover;
   background-position: center;
@@ -48,9 +46,18 @@ $tileClass: '.tile';
   display: flex;
   align-items: flex-end;
   font-size: 12px;
+  transition-property: opacity;
+  transition-duration: 2s;
+  transition-timing-function: ease;
 
   &:hover {
-    border-color: white !important;
+    #{$tileClass}-border {
+      border-color: white !important;
+    }
+  }
+
+  .loading & {
+    opacity: 0;
   }
 
   &--small {
@@ -127,6 +134,17 @@ $tileClass: '.tile';
     #{$tileClass}-icon {
       font-size: 120px;
     }
+  }
+
+  &-border {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    border-width: 3px;
+    border-style: solid;
   }
 
   &-icon {

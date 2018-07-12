@@ -1,5 +1,5 @@
 <template>
-  <main id="app">
+  <main id="app" :class="{loading: !vueMounted}">
     <header>
       <h1 class="start-title">
         Start
@@ -15,10 +15,16 @@
         :key="index"
         :class="[`tile--${tile.size}`, {'tile--sidebar': tile.sideBar}]"
         :style="{
-          borderColor: !tile.bgImage && tile.bgColor ? tile.bgColor : 'transparent',
           backgroundColor: tile.bgColor ? tile.bgColor : '#666',
-          backgroundImage: tile.bgImage ? `url(${tile.bgImage})` : 'none'
+          backgroundImage: tile.bgImage ? `url(${tile.bgImage})` : 'none',
+          transitionDelay: `${(index + 1) * 200}ms`
         }">
+        <div
+          class="tile-border"
+          :style="{
+            borderColor: !tile.bgImage && tile.bgColor ? tile.bgColor : 'transparent'
+          }">
+        </div>
         <i
           class="material-icons tile-icon"
           v-if="tile.icon">
@@ -35,6 +41,7 @@ export default {
   name: 'start',
   data () {
     return {
+      vueMounted: false,
       tiles: [
         {
           name: 'Desktop',
@@ -173,6 +180,11 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.vueMounted = true;
+    }, 1500);
   }
 }
 </script>

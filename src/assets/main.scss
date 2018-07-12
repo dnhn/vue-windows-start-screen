@@ -1,3 +1,11 @@
+::selection {
+  background-color: transparent;
+}
+
+::-moz-selection {
+  background-color: transparent;
+}
+
 html, body {
   height: 100%;
 }
@@ -19,6 +27,7 @@ body {
   color: white;
   display: flex;
   font-family: 'Helvetica Neue', sans-serif;
+  cursor: default;
 }
 
 header {
