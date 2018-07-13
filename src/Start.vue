@@ -1,17 +1,20 @@
 <template>
-  <main
-    id="app"
-    class="app"
-    :class="{'app--loading': !vueMounted}">
-    <header>
-      <h1 class="start-title">
-        Start
-      </h1>
-      <h2 class="user-name">
-        Nhan <i class="material-icons icon">person</i>
-      </h2>
-    </header>
-    <section class="tiles">
+  <main id="app" class="app">
+    <transition
+      appear
+      name="header">
+      <header>
+        <h1 class="start-title">Start</h1>
+        <h2 class="user-name">
+          Nhan <i class="material-icons icon">person</i>
+        </h2>
+      </header>
+    </transition>
+    <transition-group
+      appear
+      tag="section"
+      name="tile"
+      class="tiles">
       <div
         class="tile"
         v-for="(tile, index) in tiles"
@@ -35,7 +38,7 @@
         </i>
         <span class="tile-name">{{tile.name}}</span>
       </div>
-    </section>
+    </transition-group>
   </main>
 </template>
 
@@ -46,14 +49,8 @@ export default {
   name: 'start',
   data () {
     return {
-      vueMounted: false,
       tiles: tilesData
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.vueMounted = true;
-    }, 0);
   }
 }
 </script>

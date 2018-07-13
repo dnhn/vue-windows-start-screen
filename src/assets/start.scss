@@ -46,18 +46,11 @@ $tileClass: '.tile';
   display: flex;
   align-items: flex-end;
   font-size: 12px;
-  transition-property: opacity;
-  transition-duration: 1s;
-  transition-timing-function: ease;
 
   &:hover {
     #{$tileClass}-border {
       border-color: white !important;
     }
-  }
-
-  .app--loading & {
-    opacity: 0;
   }
 
   &--small {
@@ -159,5 +152,19 @@ $tileClass: '.tile';
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
+  }
+}
+
+.tile {
+  &-enter-active {
+    transition: opacity 1s ease;
+  }
+
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-to {
+    opacity: 1;
   }
 }

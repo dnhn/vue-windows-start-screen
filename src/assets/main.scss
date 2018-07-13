@@ -35,10 +35,19 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: opacity 1s ease;
+}
 
-  .app--loading & {
+.header {
+  &-enter-active {
+    transition: opacity 1s ease;
+  }
+
+  &-enter {
     opacity: 0;
+  }
+
+  &-enter-to {
+    opacity: 1;
   }
 }
 
